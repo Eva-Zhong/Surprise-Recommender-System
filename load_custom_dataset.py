@@ -1,17 +1,23 @@
-from surprise import BaselineOnly
+import pandas as pd
+
+from surprise import NormalPredictor
 from surprise import Dataset
 from surprise import Reader
 from surprise.model_selection import cross_validate
 
-# path to dataset file
-file_path = os.path.expanduser('~/.surprise_data/ml-100k/ml-100k/u.data')
 
-# As we're loading a custom dataset, we need to define a reader. In the
-# movielens-100k dataset, each line has the following format:
-# 'user item rating timestamp', separated by '\t' characters.
-reader = Reader(line_format='user item rating timestamp', sep='\t')
+# Creation of the dataframe. Column names are irrelevant.
+ratings_dict = {'itemID': [1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2],
+                'userID': [9, 32, 2, 45, 'user_foo', 9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo', 9, 32, 2, 45, 'user_foo', 9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo', 9, 32, 2, 45, 'user_foo', 9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo',9, 32, 2, 45, 'user_foo'],
+                'rating': [3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1, 3, 2, 4, 3, 1]}
 
-data = Dataset.load_from_file(file_path, reader=reader)
+df = pd.DataFrame(ratings_dict)
+print(df)
 
+# A reader is still needed but only the rating_scale param is requiered.
+reader = Reader(rating_scale=(1, 5))
+
+# The columns must correspond to user id, item id and ratings (in that order).
+data = Dataset.load_from_df(df[['userID', 'itemID', 'rating']], reader)
 # We can now use this dataset as we please, e.g. calling cross_validate
-cross_validate(BaselineOnly(), data, verbose=True)
+cross_validate(NormalPredictor(), data, cv=2)
