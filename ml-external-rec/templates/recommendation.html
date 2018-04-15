@@ -1,0 +1,14 @@
+<!doctype html>
+<title>MovieLens External Rec</title>
+
+<h1>These are the top 10 recommendations for User{{user}}:</h1>
+
+{% if recs %}
+<ul>
+{% for movieId in recs %}
+  <li>MovieId: {{ movieId }}</li>
+{% endfor %}
+</ul>
+{% else %}
+  <h1>Hello, Eva!</h1>
+{% endif %}
