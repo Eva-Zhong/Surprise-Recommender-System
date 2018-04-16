@@ -4,10 +4,9 @@
 build.py will connect to couchDB, load the data, uses this dataset to train a model, and serializes this model.
 The last two functionality is under development.
 
-Currently, top_n_recommendations load the movielens dataset, develop a model using KNN algorithm, and serializes
-this model.
+Currently, top_n_recommendations.py loads a dataset that contains 100k userID, movieId and ratings (ml-100k), trains a model using SVD algorithm, and saves this model for later use.
 
-server.py is a flask server that hosts external rec.
+server.py is a flask server that hosts the external rec demo.
 Users will provide the userId. The server then loads the pre-generated model, make predictions, and display the results.
 
 SVD_Model is the pre-generated SVD model. It is trained on the ml-100k dataset.
