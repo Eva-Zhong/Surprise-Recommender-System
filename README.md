@@ -7,15 +7,15 @@
 ## ml-external-rec
 ### The ml-external-rec folder contains files that make predictions by using a pre-generated model.
 
-build.py will connect to couchDB, load the data, uses this dataset to train a model, and serializes this model.
-The last two functionality is under development.
+build.py will connect to couchDB, load the data, uses this dataset to train a model(SVD_Model_couchDB), and saves this model for later use.
 
-Currently, top_n_recommendations.py loads a dataset that contains 100k userID, movieId and ratings (ml-100k), trains a model using SVD algorithm, and saves this model for later use.
+Top_n_recommendations.py loads a dataset that contains 100k userID, movieId and ratings (ml-100k), trains a model using SVD algorithm (SVD_Model), and saves it for later use.
 
 server.py is a flask server that hosts the external rec demo.
 Users will provide the userId. The server then loads the pre-generated model, make predictions, and display the results.
 
 SVD_Model is the pre-generated SVD model. It is trained on the ml-100k dataset.
+SVD_Model_couchDB is the pre-generated SVD model. It is trained on data from couchDB.
 
 
 ## SURPRISE Functionality Demo:
