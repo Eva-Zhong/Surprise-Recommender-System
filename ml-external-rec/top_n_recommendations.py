@@ -8,9 +8,9 @@ from surprise import Dataset
 Get the topN recommendations for all users
 The method can be edited to return the top-n recommendations for a specific user
 '''
-def users_top_n():
+def users_top_n(data):
     # First train an SVD algorithm on the movielens dataset.
-    data = Dataset.load_builtin('ml-100k')
+    # data = Dataset.load_builtin('ml-100k')
     trainset = data.build_full_trainset()
     algo = SVD()
     algo.fit(trainset)
@@ -22,7 +22,7 @@ def users_top_n():
     top_n = get_top_n(predictions, n=10)
 
     # Dump algorithm and reload it.
-    file_name = os.path.expanduser('./SVD_model')
+    file_name = os.path.expanduser('./SVD_model_couchDB')
     dump.dump(file_name, algo=algo)
     print("file dumped")
 
@@ -56,7 +56,8 @@ def get_top_n(predictions, n=10):
     return top_n
 
 def main():
-    users_top_n()
+    data = Dataset.load_builtin('ml-100k')
+    users_top_n(data)
 
 if __name__=="__main__":
     main()

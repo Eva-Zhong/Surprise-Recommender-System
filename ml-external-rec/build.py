@@ -44,15 +44,16 @@ def load_from_couchDB(couchserver):
 
 def main():
     ##### Make predictions by calling functions in top_n_recommendations
-    users_top_n()
+    # users_top_n()
     #####TODO: connect to CouchDB and make predictions
-    # user = "admin"
-    # password = "atth1132"
-    # couchserver = couchdb.Server("http://%s:%s@couch.harp3r.com" % (user, password))
-    # data = load_from_couchDB(couchserver)
-    # print("Finished loading data")
-    # predict(data, 1, 110, 5)
-    # predict_ml(1,110,5)
+    user = "admin"
+    password = "atth1132"
+    couchserver = couchdb.Server("http://%s:%s@couch.harp3r.com" % (user, password))
+    print("load from couchDB...")
+    data = load_from_couchDB(couchserver)
+    print("Finished loading data")
+    print("making predictions...")
+    users_top_n(data)
 
 if __name__=="__main__":
     main()

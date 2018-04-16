@@ -32,11 +32,10 @@ def manage_link():
 def recommend(userId):
     data = Dataset.load_builtin('ml-100k')
     trainset = data.build_full_trainset()
-    _, loaded_algo = dump.load(os.path.expanduser('./SVD_model'))
+    _, loaded_algo = dump.load(os.path.expanduser('./SVD_model_couchDB'))
     print("file loaded")
 
     predictions_loaded_algo = loaded_algo.test(trainset.build_testset())
     recs = get_top_n(predictions_loaded_algo,10)[int(userId)]
     print(recs)
     return render_template('recommendation.html', recs=recs, user=userId)
-    
