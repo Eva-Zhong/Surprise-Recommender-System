@@ -1,3 +1,8 @@
+## Usage:
+1. Run build.py
+2. Run flask by typing: python -m flask run. Open the URL (e.g.http://127.0.0.1:5000/) from the web browser
+3. Type in a userID and view recommendations.
+
 ## ml-external-rec
 ### The ml-external-rec folder contains files that make predictions by using a pre-generated model.
 
