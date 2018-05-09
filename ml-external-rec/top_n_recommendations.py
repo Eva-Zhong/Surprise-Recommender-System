@@ -2,13 +2,14 @@ from collections import defaultdict
 import os
 from surprise import dump
 from surprise import SVD
+from surprise import KNNBasic
 from surprise import Dataset
 
 '''
-Get the topN recommendations for all users
+Get the topN recommendations for users using SVD
 The method can be edited to return the top-n recommendations for a specific user
 '''
-def users_top_n(data):
+def SVD_top_n(data):
     # First train an SVD algorithm on the movielens dataset.
     # data = Dataset.load_builtin('ml-100k')
     trainset = data.build_full_trainset()
@@ -27,11 +28,36 @@ def users_top_n(data):
     print("file dumped")
 
     # Load a model:
-    _, loaded_algo = dump.load(file_name)
-    print("file loaded")
+    #_, loaded_algo = dump.load(file_name)
+    #print("file loaded")
+    predictions_loaded_algo = algo.test(trainset.build_testset())
 
-    predictions_loaded_algo = loaded_algo.test(trainset.build_testset())
+'''
+Get the topN recommendations for users using SVD
+The method can be edited to return the top-n recommendations for a specific user
+'''
+def KNN_top_n(data):
+    # First train an SVD algorithm on the movielens dataset.
+    # data = Dataset.load_builtin('ml-100k')
+    trainset = data.build_full_trainset()
+    algo = KNNBasic()
+    algo.fit(trainset)
 
+    # Than predict ratings for all pairs (u, i) that are NOT in the training set.
+    testset = trainset.build_anti_testset()
+    predictions = algo.test(testset)
+
+    top_n = get_top_n(predictions, n=10)
+
+    # Dump algorithm and reload it.
+    file_name = os.path.expanduser('./KNNBasic_model_couchDB')
+    dump.dump(file_name, algo=algo)
+    print("file dumped")
+
+    # Load a model:
+    #_, loaded_algo = dump.load(file_name)
+    #print("file loaded")
+    predictions_loaded_algo = algo.test(trainset.build_testset())
 
 def get_top_n(predictions, n=10):
     '''Return the top-N recommendation for each user from a set of predictions.
@@ -55,9 +81,29 @@ def get_top_n(predictions, n=10):
         top_n[uid] = user_ratings[:n]
     return top_n
 
+def get_all_recs(predictions):
+    '''Return all predictions.
+    Args:
+        predictions(list of Prediction objects): The list of predictions, as
+            returned by the test method of an algorithm.
+    Returns:
+    A dict where keys are user (raw) ids and values are lists of tuples:
+        [(raw item id, rating estimation), ...] of size n.
+    '''
+    # First map the predictions to each user.
+    top_n = defaultdict(list)
+    for uid, iid, true_r, est, _ in predictions:
+        top_n[int(uid)].append((int(iid), est))
+
+    # Then sort the predictions for each user and retrieve the k highest ones.
+    for uid, user_ratings in top_n.items():
+        user_ratings.sort(key=lambda x: x[1], reverse=True)
+    return top_n
+
+
 def main():
     data = Dataset.load_builtin('ml-100k')
-    users_top_n(data)
+    SVD_top_n(data)
 
 if __name__=="__main__":
     main()

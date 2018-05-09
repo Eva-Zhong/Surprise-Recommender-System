@@ -2,7 +2,7 @@ from surprise import Dataset
 from surprise import Reader
 import couchdb
 import pandas as pd
-from top_n_recommendations import get_top_n,users_top_n
+from top_n_recommendations import get_top_n,KNN_top_n
 # user = "admin"
 # password = "atth1132"
 # couchserver = couchdb.Server("http://%s:%s@couch.harp3r.com" % (user, password))
@@ -53,7 +53,7 @@ def main():
     data = load_from_couchDB(couchserver)
     print("Finished loading data")
     print("making predictions...")
-    users_top_n(data)
+    KNN_top_n(data)
 
 if __name__=="__main__":
     main()

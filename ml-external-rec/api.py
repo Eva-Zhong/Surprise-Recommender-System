@@ -8,11 +8,16 @@ from surprise import dump
 from surprise import SVD
 from surprise import Dataset
 
+'''
+This file contains the API endpoints.
+For more functionalities, such as get recommendation by submitting a form, check 'server.py'
+'''
 app = Flask(__name__)
 @app.route('/')
 def hello():
     return render_template('index.html')
 
+#
 @app.route('/score', methods=['POST'])
 def score():
     print("request received!")
@@ -49,6 +54,7 @@ def score():
     return jsonify(response_list)
 
 # The results are ranked
+# given a search, return a set of candidates
 @app.route('/retrieve', methods=['POST'])
 def retrieve():
     print("request received!")
@@ -80,7 +86,7 @@ def retrieve():
             i = i+1
     return jsonify(response_list)
 
-
+# given a set of candidates (and a set of excludes) build a ranked list
 @app.route('/rank', methods=['POST'])
 def rank():
     print("request received!")
@@ -110,77 +116,6 @@ def rank():
             response_list['movieIds'].append(recs[i][0])
             i = i+1
     return jsonify(response_list)
-
-'''
-A HTML page that displays recommendations for a user.
-Returns recommendations in JSON format.
-'''
-# At this point, algorithm is hard coded.
-@app.route('/recs',methods=['POST'])
-def recommend_from_form():
-    userId = request.form['userId']
-    limit = int(request.form['limit'])
-    data = Dataset.load_builtin('ml-100k')
-    trainset = data.build_full_trainset()
-    _, loaded_algo = dump.load(os.path.expanduser('./SVD_model_couchDB'))
-    print("file loaded")
-
-    predictions_loaded_algo = loaded_algo.test(trainset.build_testset())
-    recs = get_top_n(predictions_loaded_algo,limit)[int(userId)]
-    response_list = {'source':{"id":"SVD_model"},'movieIds':[],'predictedRatings':[]}
-    i = 0
-
-    while (len(response_list['predictedRatings']) < limit and i < len(recs)):
-        response = {
-                'movieId':recs[i][0],
-                'predicted rating':recs[i][1]
-        }
-        response_list['predictedRatings'].append(response)
-        response_list['movieIds'].append(recs[i][0])
-        print(response_list)
-        i = i+1
-    return jsonify(response_list)
-
-'''
-An API that returns 10 recommendations in JSON format for a user.
-Example: http://127.0.0.1:5000/api/?userid=2
-returns 10 recommendations for user 2
-'''
-@app.route('/api/')
-def recommend_from_param():
-    # TODO: add algorithm as a parameter
-    userId = request.args['userid']
-    data = Dataset.load_builtin('ml-100k')
-    trainset = data.build_full_trainset()
-    _, loaded_algo = dump.load(os.path.expanduser('./SVD_model_couchDB'))
-    print("file loaded")
-
-    predictions_loaded_algo = loaded_algo.test(trainset.build_testset())
-    recs = get_top_n(predictions_loaded_algo,10)[int(userId)]
-    print(recs)
-    response_list = {'source':{"id":"SVD_model"},'movieIds':[],'predictedRatings':[]}
-
-    for i in range(10):
-        response = {
-            'movieId':recs[i][0],
-            'predicted rating':recs[i][1]
-        }
-        response_list['predictedRatings'].append(response)
-        response_list['movieIds'].append(recs[i][0])
-        print(response_list)
-    return jsonify(response_list)
-
-
-@app.route('/manage_link', methods=['POST'])
-def manage_link():
-    print("manage_link")
-    newrequest = request.form
-    print(newrequest)
-    userId = request.form['userId']
-    print("Hi" + userId)
-    # recommend(userId)
-    return redirect(url_for('recommend_from_form',newrequest=newrequest))
-
 
 
 if __name__=='__main__':

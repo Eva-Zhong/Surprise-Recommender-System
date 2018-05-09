@@ -1,0 +1,605 @@
+{
+	"docs":
+	[
+		{
+			"userId": 1,
+			"movieId": 5,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:48:20"
+		},
+		{
+			"userId": 1,
+			"movieId": 10,
+			"rating": 4,
+			"tstamp": "1997-10-17 05:00:17"
+		},
+		{
+			"userId": 1,
+			"movieId": 13,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:37:13"
+		},
+		{
+			"userId": 1,
+			"movieId": 17,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:27:17"
+		},
+		{
+			"userId": 1,
+			"movieId": 21,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:57:12"
+		},
+		{
+			"userId": 1,
+			"movieId": 28,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:30:44"
+		},
+		{
+			"userId": 1,
+			"movieId": 31,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:30:58"
+		},
+		{
+			"userId": 1,
+			"movieId": 39,
+			"rating": 3,
+			"tstamp": "1997-10-17 05:00:58"
+		},
+		{
+			"userId": 1,
+			"movieId": 40,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:49:26"
+		},
+		{
+			"userId": 1,
+			"movieId": 45,
+			"rating": 2,
+			"tstamp": "1997-10-17 06:17:55"
+		},
+		{
+			"userId": 1,
+			"movieId": 46,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:53:36"
+		},
+		{
+			"userId": 1,
+			"movieId": 50,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:25:44"
+		},
+		{
+			"userId": 1,
+			"movieId": 62,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:29:28"
+		},
+		{
+			"userId": 1,
+			"movieId": 74,
+			"rating": 5,
+			"tstamp": "1997-10-17 08:03:43"
+		},
+		{
+			"userId": 1,
+			"movieId": 85,
+			"rating": 2,
+			"tstamp": "1997-10-17 04:32:31"
+		},
+		{
+			"userId": 1,
+			"movieId": 110,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:35:19"
+		},
+		{
+			"userId": 1,
+			"movieId": 112,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:53:36"
+		},
+		{
+			"userId": 1,
+			"movieId": 141,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:53:36"
+		},
+		{
+			"userId": 1,
+			"movieId": 150,
+			"rating": 3,
+			"tstamp": "1997-10-17 05:58:55"
+		},
+		{
+			"userId": 1,
+			"movieId": 161,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:56:40"
+		},
+		{
+			"userId": 1,
+			"movieId": 165,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:26:28"
+		},
+		{
+			"userId": 1,
+			"movieId": 204,
+			"rating": 2,
+			"tstamp": "1997-10-17 06:56:19"
+		},
+		{
+			"userId": 1,
+			"movieId": 207,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:57:47"
+		},
+		{
+			"userId": 1,
+			"movieId": 222,
+			"rating": 5,
+			"tstamp": "1997-10-17 05:58:56"
+		},
+		{
+			"userId": 1,
+			"movieId": 224,
+			"rating": 5,
+			"tstamp": "1997-10-17 06:25:29"
+		},
+		{
+			"userId": 1,
+			"movieId": 246,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:23:44"
+		},
+		{
+			"userId": 1,
+			"movieId": 249,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:33:05"
+		},
+		{
+			"userId": 1,
+			"movieId": 253,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:38:25"
+		},
+		{
+			"userId": 1,
+			"movieId": 254,
+			"rating": 2,
+			"tstamp": "1997-10-17 06:52:20"
+		},
+		{
+			"userId": 1,
+			"movieId": 260,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:31:18"
+		},
+		{
+			"userId": 1,
+			"movieId": 261,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:29:42"
+		},
+		{
+			"userId": 1,
+			"movieId": 277,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:57:13"
+		},
+		{
+			"userId": 1,
+			"movieId": 279,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:01:55"
+		},
+		{
+			"userId": 1,
+			"movieId": 282,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:41:04"
+		},
+		{
+			"userId": 1,
+			"movieId": 300,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:56:01"
+		},
+		{
+			"userId": 1,
+			"movieId": 305,
+			"rating": 3,
+			"tstamp": "1997-10-17 08:01:57"
+		},
+		{
+			"userId": 1,
+			"movieId": 318,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:30:43"
+		},
+		{
+			"userId": 1,
+			"movieId": 327,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:56:19"
+		},
+		{
+			"userId": 1,
+			"movieId": 329,
+			"rating": 4,
+			"tstamp": "1997-10-17 08:13:37"
+		},
+		{
+			"userId": 1,
+			"movieId": 339,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:41:04"
+		},
+		{
+			"userId": 1,
+			"movieId": 345,
+			"rating": 4,
+			"tstamp": "1997-10-17 05:00:58"
+		},
+		{
+			"userId": 1,
+			"movieId": 349,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:30:09"
+		},
+		{
+			"userId": 1,
+			"movieId": 353,
+			"rating": 5,
+			"tstamp": "1997-10-17 06:45:42"
+		},
+		{
+			"userId": 1,
+			"movieId": 356,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:38:58"
+		},
+		{
+			"userId": 1,
+			"movieId": 357,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:52:48"
+		},
+		{
+			"userId": 1,
+			"movieId": 362,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:03:22"
+		},
+		{
+			"userId": 1,
+			"movieId": 364,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:34:51"
+		},
+		{
+			"userId": 1,
+			"movieId": 369,
+			"rating": 1,
+			"tstamp": "1997-10-17 04:52:48"
+		},
+		{
+			"userId": 1,
+			"movieId": 376,
+			"rating": 3,
+			"tstamp": "1997-10-17 05:58:56"
+		},
+		{
+			"userId": 1,
+			"movieId": 377,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:56:40"
+		},
+		{
+			"userId": 1,
+			"movieId": 380,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:36:56"
+		},
+		{
+			"userId": 1,
+			"movieId": 410,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:56:44"
+		},
+		{
+			"userId": 1,
+			"movieId": 415,
+			"rating": 1,
+			"tstamp": "1997-10-17 08:11:04"
+		},
+		{
+			"userId": 1,
+			"movieId": 421,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:42:32"
+		},
+		{
+			"userId": 1,
+			"movieId": 435,
+			"rating": 1,
+			"tstamp": "1997-10-17 08:03:43"
+		},
+		{
+			"userId": 1,
+			"movieId": 440,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:00:49"
+		},
+		{
+			"userId": 1,
+			"movieId": 449,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:34:51"
+		},
+		{
+			"userId": 1,
+			"movieId": 450,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:26:03"
+		},
+		{
+			"userId": 1,
+			"movieId": 457,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:36:19"
+		},
+		{
+			"userId": 1,
+			"movieId": 466,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:53:56"
+		},
+		{
+			"userId": 1,
+			"movieId": 469,
+			"rating": 2,
+			"tstamp": "1997-10-17 06:51:41"
+		},
+		{
+			"userId": 1,
+			"movieId": 471,
+			"rating": 2,
+			"tstamp": "1997-10-17 04:58:46"
+		},
+		{
+			"userId": 1,
+			"movieId": 474,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:33:04"
+		},
+		{
+			"userId": 1,
+			"movieId": 475,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:54:21"
+		},
+		{
+			"userId": 1,
+			"movieId": 480,
+			"rating": 1,
+			"tstamp": "1997-10-17 04:41:57"
+		},
+		{
+			"userId": 1,
+			"movieId": 489,
+			"rating": 3,
+			"tstamp": "1997-10-17 08:01:57"
+		},
+		{
+			"userId": 1,
+			"movieId": 491,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:54:21"
+		},
+		{
+			"userId": 1,
+			"movieId": 497,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:30:00"
+		},
+		{
+			"userId": 1,
+			"movieId": 500,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:04:44"
+		},
+		{
+			"userId": 1,
+			"movieId": 508,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:38:58"
+		},
+		{
+			"userId": 1,
+			"movieId": 527,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:23:43"
+		},
+		{
+			"userId": 1,
+			"movieId": 539,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:43:43"
+		},
+		{
+			"userId": 1,
+			"movieId": 541,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:33:41"
+		},
+		{
+			"userId": 1,
+			"movieId": 543,
+			"rating": 4,
+			"tstamp": "1997-10-17 05:57:26"
+		},
+		{
+			"userId": 1,
+			"movieId": 552,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:27:54"
+		},
+		{
+			"userId": 1,
+			"movieId": 585,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:45:11"
+		},
+		{
+			"userId": 1,
+			"movieId": 586,
+			"rating": 2,
+			"tstamp": "1997-10-17 08:01:55"
+		},
+		{
+			"userId": 1,
+			"movieId": 587,
+			"rating": 4,
+			"tstamp": "1997-10-17 06:28:50"
+		},
+		{
+			"userId": 1,
+			"movieId": 588,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:41:03"
+		},
+		{
+			"userId": 1,
+			"movieId": 589,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:24:22"
+		},
+		{
+			"userId": 1,
+			"movieId": 590,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:39:39"
+		},
+		{
+			"userId": 1,
+			"movieId": 592,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:45:41"
+		},
+		{
+			"userId": 1,
+			"movieId": 594,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:38:12"
+		},
+		{
+			"userId": 1,
+			"movieId": 595,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:33:41"
+		},
+		{
+			"userId": 1,
+			"movieId": 596,
+			"rating": 4,
+			"tstamp": "1997-10-17 08:03:43"
+		},
+		{
+			"userId": 1,
+			"movieId": 597,
+			"rating": 3,
+			"tstamp": "1997-10-17 08:10:19"
+		},
+		{
+			"userId": 1,
+			"movieId": 608,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:56:39"
+		},
+		{
+			"userId": 1,
+			"movieId": 616,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:54:57"
+		},
+		{
+			"userId": 1,
+			"movieId": 637,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:52:53"
+		},
+		{
+			"userId": 1,
+			"movieId": 647,
+			"rating": 3,
+			"tstamp": "1997-10-17 05:00:58"
+		},
+		{
+			"userId": 1,
+			"movieId": 653,
+			"rating": 3,
+			"tstamp": "1997-10-17 08:12:31"
+		},
+		{
+			"userId": 1,
+			"movieId": 667,
+			"rating": 1,
+			"tstamp": "1997-10-17 06:01:27"
+		},
+		{
+			"userId": 1,
+			"movieId": 688,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:01:27"
+		},
+		{
+			"userId": 1,
+			"movieId": 709,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:24:11"
+		},
+		{
+			"userId": 1,
+			"movieId": 720,
+			"rating": 5,
+			"tstamp": "1997-10-17 04:26:42"
+		},
+		{
+			"userId": 1,
+			"movieId": 733,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:29:59"
+		},
+		{
+			"userId": 1,
+			"movieId": 750,
+			"rating": 3,
+			"tstamp": "1997-10-17 04:35:19"
+		},
+		{
+			"userId": 1,
+			"movieId": 765,
+			"rating": 2,
+			"tstamp": "1997-10-17 06:53:56"
+		},
+		{
+			"userId": 1,
+			"movieId": 783,
+			"rating": 3,
+			"tstamp": "1997-10-17 06:45:43"
+		},
+		{
+			"userId": 1,
+			"movieId": 802,
+			"rating": 4,
+			"tstamp": "1997-10-17 04:33:41"
+		}
+	]
+}
