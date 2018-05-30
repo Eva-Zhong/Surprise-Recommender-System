@@ -7,6 +7,7 @@ import os
 from surprise import dump
 from surprise import SVD
 from surprise import Dataset
+import ast
 
 '''
 This file contains the API endpoints.
@@ -21,13 +22,18 @@ def hello():
 @app.route('/score', methods=['POST'])
 def score():
     print("request received!")
-    score_request = request.get_json()
+    score_request = request.form
+    #score_json = score_request.get_json()
     userId = score_request.get("userId")
     candidateIds  = score_request.get("candidateIds")
-    excludeIds  = score_request.get("excludeIds")
-    # offset  = score_request.get('offset')
+    excludeIds = []
     limit  = score_request.get("limit")
     # retrievalCriteria  = score_request.get('retrievalCriteria')
+
+    # Parse a string representation of a list to a list
+    candidateIds = ast.literal_eval(candidateIds)
+    for i in candidateIds[1:-1]:
+        i = int(i)
 
     # load data and model
     data = Dataset.load_builtin('ml-100k')
@@ -53,7 +59,7 @@ def score():
             print(response_list)
     return jsonify(response_list)
 
-# The results are ranked
+
 # given a search, return a set of candidates
 @app.route('/retrieve', methods=['POST'])
 def retrieve():
@@ -90,7 +96,7 @@ def retrieve():
 @app.route('/rank', methods=['POST'])
 def rank():
     print("request received!")
-    rank_request = request.get_json()
+    rank_request = request.get_json(force=True)
     userId = rank_request.get("userId")
     candidateIds  = rank_request.get("candidateIds")
     excludeIds  = rank_request.get("excludeIds")
