@@ -9,6 +9,7 @@ from surprise import SVD
 from surprise import Dataset
 import ast
 
+
 '''
 This file contains the API endpoints.
 For more functionalities, such as get recommendation by submitting a form, check 'server.py'
@@ -18,7 +19,7 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html')
 
-#
+
 @app.route('/score', methods=['POST'])
 def score():
     print("request received!")
@@ -26,6 +27,7 @@ def score():
     #score_json = score_request.get_json()
     userId = score_request.get("userId")
     candidateIds  = score_request.get("candidateIds")
+    # print(candidateIds)
     excludeIds = []
     limit  = score_request.get("limit")
     # retrievalCriteria  = score_request.get('retrievalCriteria')
@@ -38,15 +40,20 @@ def score():
     # load data and model
     data = Dataset.load_builtin('ml-100k')
     trainset = data.build_full_trainset()
-    _, loaded_algo = dump.load(os.path.expanduser('./SVD_model_couchDB'))
+
+    # Make predictions on the testset
+    _, loaded_algo = dump.load(os.path.expanduser('./SVD_model'))
     print("file loaded")
-    predictions_loaded_algo = loaded_algo.test(trainset.build_testset())
+    predictions_loaded_algo = algo.test(trainset.build_testset())
+
+    # Get recommendations for a given user
     recs = get_all_recs(predictions_loaded_algo)[int(userId)]
     response_list = {'source':{"id":"SVD_model"},'movieIds':[],'predictedRatings':[]}
     i = 0
 
     # Format recommendations
     for i in range(0, len(recs)):
+        print("i="+str(i))
         if (len(response_list['movieIds']) >= int(limit)):
             break;
         if (recs[i][0] in candidateIds) and (recs[i][0] not in excludeIds):
@@ -56,7 +63,8 @@ def score():
             }
             response_list['predictedRatings'].append(response)
             response_list['movieIds'].append(recs[i][0])
-            print(response_list)
+
+    print(response_list)
     return jsonify(response_list)
 
 

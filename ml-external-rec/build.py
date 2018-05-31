@@ -3,6 +3,10 @@ from surprise import Reader
 import couchdb
 import pandas as pd
 from top_n_recommendations import get_top_n,KNN_top_n
+from surprise import SVD
+import os
+from surprise import dump
+from collections import defaultdict
 # user = "admin"
 # password = "atth1132"
 # couchserver = couchdb.Server("http://%s:%s@couch.harp3r.com" % (user, password))
@@ -39,13 +43,29 @@ def load_from_couchDB(couchserver):
     return data
 
 
-# Define a method that takes in an algorithm and make predictions
-# def train():
+# Train SVD model using ml-100k dataset
+def train_SVD():
+    data = Dataset.load_builtin('ml-100k')
+    trainset = data.build_full_trainset()
+    algo = SVD()
+    algo.fit(trainset)
+
+    # Dump algorithm and reload it.
+    file_name = os.path.expanduser('./SVD_model')
+    dump.dump(file_name, algo=algo)
+    print("file dumped")
+
+    # Load a model:
+    _, loaded_algo = dump.load('./SVD_model')
+    print("file loaded")
+    predictions_loaded_algo = loaded_algo.test(trainset.build_testset())
+    #print(predictions_loaded_algo)
+
 
 def main():
-    ##### Make predictions by calling functions in top_n_recommendations
-    # users_top_n()
-    #####TODO: connect to CouchDB and make predictions
+    #### Make predictions by calling functions in top_n_recommendations
+    #### Predict based on data from couchDB
+    users_top_n()
     user = "admin"
     password = "atth1132"
     couchserver = couchdb.Server("http://%s:%s@couch.harp3r.com" % (user, password))
@@ -54,6 +74,9 @@ def main():
     print("Finished loading data")
     print("making predictions...")
     KNN_top_n(data)
+
+    #### Train SVD model:
+    #train_SVD()
 
 if __name__=="__main__":
     main()
