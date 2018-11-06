@@ -1,3 +1,6 @@
+## What is this?
+This is a simple movie recommendation engine built using the Surprise library.
+
 ## Usage:
 1. Enter the ml-external-rec directory. 
 2. Run build.py
