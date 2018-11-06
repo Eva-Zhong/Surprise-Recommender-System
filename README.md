@@ -2,6 +2,7 @@
 This is a simple movie recommendation engine built using the Surprise library.
 
 ## Usage:
+0. You need to install the Surprise library to run the code.
 1. Enter the ml-external-rec directory. 
 2. Run build.py
 3. Run flask by typing: python -m flask run. Open the URL (e.g.http://127.0.0.1:5000/) from the web browser
